@@ -17,9 +17,11 @@ const messaging = firebase.messaging();
 export function initNotification() {
     Notification.requestPermission().then((permission) => {
         if (permission === 'granted') {
+            console.log("Granted");
             messaging.getToken().then((currentToken) => {
                 if (currentToken) {
-                    console.log("Token =>", currentToken);
+                    console.log("Token =>");
+                    console.log(currentToken);
                 } else {
                     // Show permission request.
                     console.log('No Instance ID token available. Request permission to generate one.');
